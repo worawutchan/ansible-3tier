@@ -1,0 +1,11 @@
+---
+- name: clean data file
+  shell: rm -rf /var/lib/pgsql/data/*
+- name: initilize postgresql
+  command: postgresql-setup initdb
+- name: initilize postgresql some more
+  command: chkconfig postgresql on
+- name: start postgresql
+  service:
+    name: postgresql.service
+    state: started

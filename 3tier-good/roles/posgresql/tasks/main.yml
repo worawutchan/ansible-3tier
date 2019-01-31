@@ -1,0 +1,9 @@
+---
+- name: install postgresql
+  yum:
+    name: postgresql-server
+    state: latest
+- name: enable posgresql at boot
+  service:
+    name: postgresql
+    enabled: yes

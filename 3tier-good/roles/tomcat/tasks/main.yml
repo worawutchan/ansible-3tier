@@ -1,0 +1,17 @@
+---
+- name: install tomcat
+  package:
+    name: tomcat
+    state: latest
+- name: enable tomcat at boot
+  service:
+    name: tomcat
+    enabled: yes
+- name: start tomcat
+  service:
+    name: tomcat
+    state: started
+  notify:
+    - create ansible tomcat directory
+    - copy static index.html
+    - restart tomcat
